@@ -48,8 +48,9 @@ class OverviewFragment : Fragment() {
         binding.lifecycleOwner = this
 
         // Giving the binding access to the OverviewViewModel
-        binding.viewModel = viewModel
 
+        binding.photoGrid.adapter = PhotoGridAdapter()
+        binding.viewModel = viewModel
         setHasOptionsMenu(true)
         return binding.root
     }
@@ -62,3 +63,5 @@ class OverviewFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
     }
 }
+
+enum class MarsApiStatus { LOADING, ERROR, DONE }
